@@ -1,3 +1,19 @@
+
+body{
+    background-color: burlywood;
+}
+#game{
+    display: flex;
+    justify-content: space-evenly;
+}
+#head1{
+    justify-content: center;
+    align-items: center;
+}
+
+#head1,h1{
+    text-align: center;
+}
 .player-choice{
     height: 500px;
     width: 50%;
@@ -6,11 +22,42 @@
     justify-content: space-evenly;
     align-items: center;
 
-    background-color: azure;
+    
 }
 button{
     padding: 20px;
     
     font-size: xx-large;
     background-color: aqua;
+}
+
+#score{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    
+}
+
+#plscore,#cpuscore,#draws{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+/* #cpuscore{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+#PlayerWins,#ComputerWins,#Draws{
+    font-size: xx-large;
+    
+    
 }

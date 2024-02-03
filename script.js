@@ -1,4 +1,49 @@
-console.log("MILAN");
+let playerChoice="";
+let computerChoice="";
+
+// Eventlistener for all buttons      
+      var plpaper = document.querySelector('#paper');
+      plpaper.addEventListener('click',() =>   {
+          playerChoice="Paper";
+          computerChoice=getComputerChoice();
+          console.log(playMatch(playerChoice,computerChoice))
+          document.getElementById("PlayerWins").textContent=playerWins;
+          document.getElementById("ComputerWins").textContent=computerWins;
+          document.getElementById("Draws").textContent=Draws;
+          
+      })
+
+      var plrock = document.querySelector('#rock');
+      plrock.addEventListener('click',() =>   {
+          playerChoice="Rock";
+          computerChoice=getComputerChoice();
+          console.log(playMatch(playerChoice,computerChoice))
+          playerChoice="";
+          computerChoice="";
+          
+          document.getElementById("PlayerWins").textContent=playerWins;
+          document.getElementById("ComputerWins").textContent=computerWins;
+          document.getElementById("Draws").textContent=Draws;
+          
+      })
+
+      var plscissors = document.querySelector('#scissors');
+          plscissors.addEventListener('click',() =>  {
+          playerChoice="Scissors";
+          computerChoice=getComputerChoice();
+          console.log(playMatch(playerChoice,computerChoice))
+
+          document.getElementById("PlayerWins").textContent=playerWins;
+          document.getElementById("ComputerWins").textContent=computerWins;
+          document.getElementById("Draws").textContent=Draws;
+          
+      })
+
+      
+      
+
+
+
 //Function to genarate a random number from min to max
 function getRandomIntInRange(min, max) {
     // Use Math.floor() to round down to the nearest integer
@@ -24,34 +69,26 @@ function getRandomIntInRange(min, max) {
 
   }
  
-  function getPlayerChoice(){
-    let playerChoice= prompt("Please enter a option(Rock, Paper , Scissors):");
-    playerChoice=playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1).toLowerCase();
-    
-         return playerChoice;
-  
-   
-
-  }
-  
-
   let playerWins=0;
   let computerWins=0;
-  // console.log(playerChoice);
-  // console.log(computerChoice);
+  let Draws=0;
+  
     
-        function play(playerChoice,computerChoice){
+     
+    
+        function playMatch(playerchoice,computerchoice){
 
-            if(playerChoice==="Rock"&& computerChoice==="Scissors"){
+            if(playerchoice=='Rock'&& computerchoice=='Scissors'){
               playerWins++;
-            return "Player wins";
-            }else if(playerChoice==="Paper"&& computerChoice==="Rock"){
-              playerWins++;
-                return "Player wins";
-            }else if(playerChoice==="Scissors"&& computerChoice==="Paper"){
+            return 'Player wins';
+            }else if(playerchoice=="Paper"&& computerchoice=="Rock"){
               playerWins++;
                 return "Player wins";
-            }else if(playerChoice===computerChoice){
+            }else if(playerchoice=="Scissors"&& computerchoice=="Paper"){
+              playerWins++;
+                return "Player wins";
+            }else if(playerchoice==computerchoice){
+              Draws++;
                 return "DRAW";
                 
             }
@@ -59,22 +96,20 @@ function getRandomIntInRange(min, max) {
               computerWins++;
             return "Computer Wins";
             }
-
+ 
+   
         
     }
-  for(let i =0; i<5;i++){
-
-    let playerChoice=getPlayerChoice();
-    let computerChoice= getComputerChoice();
-   console.log(play(playerChoice,computerChoice));
-   
-  }
-  if(computerWins<playerWins){
-    console.log("Player wins match");
-   }
-   else if(computerWins>playerWins){
-    console.log("Compueter wins match");
-   }
-   else{
-    console.log("DRAW MATCH");
+ 
+  
+   function checkMatchWinner(){
+    if(computerWins<playerWins){
+      console.log("Player wins match");
+     }
+     else if(computerWins>playerWins){
+      console.log("Compueter wins match");
+     }
+     else {
+      console.log("DRAW MATCH");
+     }
    }
