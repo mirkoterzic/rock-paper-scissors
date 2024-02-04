@@ -61,10 +61,8 @@ function getRandomIntInRange(min, max) {
   return computerChoice;
 
   }
- 
- 
-
-        function playMatch(playerchoice,computerchoice){
+//Function to play a match
+  function playMatch(playerchoice,computerchoice){
 
             if(playerchoice=='Rock'&& computerchoice=='Scissors'){
               playerWins++;
@@ -86,7 +84,8 @@ function getRandomIntInRange(min, max) {
             }
         
         }
-        function checkMatchWinner(){
+//Function to check match winner
+  function checkMatchWinner(){
         if(playerWins==5){
          
           const pwon=document.getElementById('game');
@@ -107,8 +106,8 @@ function getRandomIntInRange(min, max) {
          
         }
         }
-
-        function updatescore(){
+//Funtion to update Score
+  function updatescore(){
           document.getElementById("PlayerWins").textContent=playerWins;
           document.getElementById("ComputerWins").textContent=computerWins;
           document.getElementById("Draws").textContent=Draws;
