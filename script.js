@@ -1,47 +1,40 @@
 let playerChoice="";
 let computerChoice="";
+let playerWins=0;
+let computerWins=0;
+let Draws=0;
+
 
 // Eventlistener for all buttons      
       var plpaper = document.querySelector('#paper');
       plpaper.addEventListener('click',() =>   {
           playerChoice="Paper";
           computerChoice=getComputerChoice();
-          console.log(playMatch(playerChoice,computerChoice))
-          document.getElementById("PlayerWins").textContent=playerWins;
-          document.getElementById("ComputerWins").textContent=computerWins;
-          document.getElementById("Draws").textContent=Draws;
-          
+          playMatch(playerChoice,computerChoice);
+          updatescore();
+          checkMatchWinner();
+
       })
 
       var plrock = document.querySelector('#rock');
       plrock.addEventListener('click',() =>   {
           playerChoice="Rock";
           computerChoice=getComputerChoice();
-          console.log(playMatch(playerChoice,computerChoice))
+          playMatch(playerChoice,computerChoice)
+          updatescore();
           playerChoice="";
           computerChoice="";
-          
-          document.getElementById("PlayerWins").textContent=playerWins;
-          document.getElementById("ComputerWins").textContent=computerWins;
-          document.getElementById("Draws").textContent=Draws;
-          
+          checkMatchWinner();
       })
 
       var plscissors = document.querySelector('#scissors');
           plscissors.addEventListener('click',() =>  {
           playerChoice="Scissors";
           computerChoice=getComputerChoice();
-          console.log(playMatch(playerChoice,computerChoice))
-
-          document.getElementById("PlayerWins").textContent=playerWins;
-          document.getElementById("ComputerWins").textContent=computerWins;
-          document.getElementById("Draws").textContent=Draws;
-          
+          playMatch(playerChoice,computerChoice)
+          updatescore();
+          checkMatchWinner();
       })
-
-      
-      
-
 
 
 //Function to genarate a random number from min to max
@@ -69,13 +62,8 @@ function getRandomIntInRange(min, max) {
 
   }
  
-  let playerWins=0;
-  let computerWins=0;
-  let Draws=0;
-  
-    
-     
-    
+ 
+
         function playMatch(playerchoice,computerchoice){
 
             if(playerchoice=='Rock'&& computerchoice=='Scissors'){
@@ -96,20 +84,32 @@ function getRandomIntInRange(min, max) {
               computerWins++;
             return "Computer Wins";
             }
- 
-   
         
-    }
- 
-  
-   function checkMatchWinner(){
-    if(computerWins<playerWins){
-      console.log("Player wins match");
-     }
-     else if(computerWins>playerWins){
-      console.log("Compueter wins match");
-     }
-     else {
-      console.log("DRAW MATCH");
-     }
-   }
+        }
+        function checkMatchWinner(){
+        if(playerWins==5){
+         
+          const pwon=document.getElementById('game');
+          pwon.textContent="Player Won Match";
+          pwon.style.color = "green";
+          pwon.style.fontWeight = "bold";
+          pwon.style.fontSize="50px";
+          
+        }
+        if(computerWins===5){
+          
+          
+          const cpwon=document.getElementById('game');
+          cpwon.textContent="Computer Won Match";
+          cpwon.style.color = "red";
+          cpwon.style.fontWeight = "bold";
+          cpwon.style.fontSize="50px";
+         
+        }
+        }
+
+        function updatescore(){
+          document.getElementById("PlayerWins").textContent=playerWins;
+          document.getElementById("ComputerWins").textContent=computerWins;
+          document.getElementById("Draws").textContent=Draws;
+        }

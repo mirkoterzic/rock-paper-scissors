@@ -14,7 +14,7 @@ body{
 #head1,h1{
     text-align: center;
 }
-.player-choice{
+#player-choice{
     height: 500px;
     width: 50%;
     display: flex;
